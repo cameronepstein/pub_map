@@ -17,13 +17,25 @@
     <h3>Pub Map</h3>
     <section>
       <p>
-        <input type="button" value="London" />
-        <input type="button" value="Belfast" />
+        <input type="button" onclick="initMapLondon()" value="London" />
+        <input type="button" onclick="initMapBelfast()" value="Belfast" />
       </p>
     </section>
     <div id="map"></div>
     <script>
-    function initMap() {
+    function initMapBelfast() {
+      var uluru = {lat: 54.596337, lng: -5.930064};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+
+    function initMapLondon() {
       var uluru = {lat: 51.508282, lng: -0.12806};
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 14,
@@ -36,7 +48,7 @@
     }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYD_4xbBhjnOChiobZ-16brSOHR6K2RCo&libraries=places&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYD_4xbBhjnOChiobZ-16brSOHR6K2RCo&libraries=places&callback=initMapLondon">
     </script>
   </body>
 </html>
