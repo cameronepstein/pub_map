@@ -16,6 +16,6 @@ Obtain google maps api key from [this link](https://developers.google.com/maps/d
 
 ![Alt text](https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/09/Google-Maps-API-Key-Go-to-Console.png)
 
-Replace the text ![Alt text](/img/screenshot.jpg?raw=true) on line 71 with your new API key <br/>
+Replace the text ```ADD_API_KEY_HERE``` on ``` index.html:71``` with your new API key <br/>
 Start local server: ```npm start```<br/>
-Visit http://localhost:8000/ and enjoy!
+Visit ```http://localhost:8000/``` and enjoy!
