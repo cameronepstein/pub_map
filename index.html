@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Lato:700i" rel="stylesheet">
     <style>
       #map {
         height: 90%;
@@ -10,19 +11,49 @@
         height: 96%;
         margin: 0;
         padding: 0;
+        color: #D3D3D3;
       }
+
+      h1 {
+        font-family: 'Lato', sans-serif;
+        font-size: 1px;
+        text-align: right;
+      }
+      .button {
+        font-size: 1.5vw;
+        font-weight: bold;
+        margin: 1vw;
+        padding: 1.5vw;
+        border-color: black;
+        border-width: 0.4vw;
+        background-color: white;
+      }
+      .button:hover {
+        color: #ff3300;
+      }
+      .button:active {
+        position: relative;
+        top: 0.2vw;
+      }
+      .button:focus {
+        outline: 0;
+      }
+
+
     </style>
   </head>
   <body>
-    <h3>Pub Map</h3>
     <section>
       <p>
-        <input type="button" onclick="initMap({lat: 51.508282, lng:-0.12806})" value="London" />
-        <input type="button" onclick="initMap({lat: 54.596337, lng: -5.930064})" value="Belfast" />
+        <input type="button" class="button" onclick="initMap({lat: 51.508282, lng:-0.12806})" value="London" />
+        <input type="button" class="button" onclick="initMap({lat: 54.596337, lng: -5.930064})" value="Belfast" />
       </p>
     </section>
     <div id="map"></div>
     <script>
+
+    //Google maps API with markers on specified places
+
     var map;
     var infowindow;
 
@@ -34,12 +65,13 @@
           zoom: 15
         });
 
+        // Outline of marker specifications
         infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: pyrmont,
-          radius: 5000,
-          type: ['bar']
+          radius: 8500,
+          type: ["night_club"],
         }, callback);
       }
 
@@ -58,12 +90,12 @@
           position: place.geometry.location
         });
 
+        //On click listener which displays place name
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.setContent(place.name);
           infowindow.open(map, this);
         });
       }
-
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYD_4xbBhjnOChiobZ-16brSOHR6K2RCo&libraries=places&callback=initMap" async defer></script>
   </body>

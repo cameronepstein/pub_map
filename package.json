@@ -19,6 +19,7 @@
   "homepage": "https://github.com/cameronepstein/pub_map#readme",
   "dependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.1.2"
+    "mocha": "^3.1.2",
+    "zombie": "^4.3.0"
   }
 }
